@@ -1,0 +1,279 @@
+{
+	"info": {
+		"name": "Akka http example",
+		"_postman_id": "6ed43450-60ea-8e6c-e816-35374ede46bd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users: all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Organizations: all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/organizations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organizations"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tickets: all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Users: filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/users?active=false&role=admin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "active",
+							"value": "false",
+							"equals": true
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Organizations: filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/organizations?shared_tickets=true&domain_names=artiq,mazuda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organizations"
+					],
+					"query": [
+						{
+							"key": "shared_tickets",
+							"value": "true",
+							"equals": true
+						},
+						{
+							"key": "domain_names",
+							"value": "artiq,mazuda",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tickets: filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/tickets?has_incidents=false&via=web&tags=Virginia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "has_incidents",
+							"value": "false",
+							"equals": true
+						},
+						{
+							"key": "via",
+							"value": "web",
+							"equals": true
+						},
+						{
+							"key": "tags",
+							"value": "Virginia",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Users: create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"shared\": false,\n    \"_id\": 900,\n    \"tags\": [\n        \"Funny\"\n    ],\n    \"timezone\": \"Melbourne\",\n    \"active\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Users: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tags: returns tickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/all?tags=virginia,maine",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"all"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "virginia,maine",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tags: returns users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/all?tags=Wyano",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"all"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "Wyano",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
